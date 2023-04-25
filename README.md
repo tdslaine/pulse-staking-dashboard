@@ -1,29 +1,20 @@
-# Lighthouse staking dashboard
+# PLS staking dashboard
 
-Made by Yoldark from Prysm lot of keys dashboard
-It is not the same as the prysm's one because lighthouse do not provide the same information. I have adapted the dashboard to make it works. I upgraded the dashboard and changed a lot of things making it not a 1:1 copy of the prysm dashboard.  
-Doc for the prysm dashboard : https://docs.prylabs.network/docs/prysm-usage/monitoring/grafana-dashboard/#creating-and-importing-dashboards
+Based by Yoldark's work.
 
-It is my first exported dashboard, you may need to adapt it to your usage. Feel free to open issues and provide new elements improvement.
-
-You need cryptowat to retrieve currency price Here is the doc from prysm https://docs.prylabs.network/docs/prysm-usage/monitoring/currency-converter/  
-It should run without though.  
-Supports pairs: etheur,ethusd,ethgbp,ethcad,ethchf,ethjpy,ethbtc
-
-This graph is gain and running monitoring oriented, you should use another graph if you want system monitoring oriented graphs 
 <img src=preview.PNG>
 
 # Requirement
 * Grafana 8
 * Prometheus with more than 30 days of data retention
-* Cryptowat (optionnal)
-* Lighthouse "Tony" version with metrics enabled (bn et vc)  and validator monitor on bc 
+* Cryptowat (optional) << I don't know how to configure this.  Any help will be appreciated!
+* Nodes: Execution, Consensus and Validator with metrics on.
 
 # Features
 * Handle lot of keys
-* Display annualized %
-* Support currency conversion thanks cryptowat
-* Always display eth gains
+* Display annualized % (kind of)
+* ~Support currency conversion thanks cryptowat~  << This have not been implemented yet!
+* Displays PLS gains
 * Display status of validators (was very hard to do)
 * Built in alerts
 * Display attestation, aggregate and proposed count per validators
@@ -38,4 +29,5 @@ This graph is gain and running monitoring oriented, you should use another graph
 * The bottom node graph is supposed to display global balance for exited and withdrawable validators. This is not the case as lighthouse do not provide this info.
 * ~Log types counter are merged, need warning and error counter~ It is because there is no error logs
 
-eth donation : 0x945DF808617bDD3753237eCF0d5D2A8EEedE76d2  
+eth donation : 0x945DF808617bDD3753237eCF0d5D2A8EEedE76d2 (Yoldark's)
+eth donation : 0x21A7D66C1f1089b78a2A530580295939Cdf2a0eD (Mine)
