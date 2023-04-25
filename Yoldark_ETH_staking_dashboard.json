@@ -26,7 +26,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 7,
+  "id": 4,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -99,11 +99,7 @@
             "properties": [
               {
                 "id": "decimals",
-                "value": 4
-              },
-              {
-                "id": "unit",
-                "value": "PLS"
+                "value": 2
               }
             ]
           },
@@ -966,6 +962,7 @@
       },
       "fieldConfig": {
         "defaults": {
+          "decimals": 2,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -1003,7 +1000,7 @@
             "properties": [
               {
                 "id": "decimals",
-                "value": 4
+                "value": 2
               }
             ]
           },
@@ -1141,10 +1138,6 @@
               "options": "tPLS"
             },
             "properties": [
-              {
-                "id": "unit",
-                "value": "tPLS"
-              },
               {
                 "id": "thresholds",
                 "value": {
@@ -4526,7 +4519,7 @@
       {
         "allValue": "tPLS",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -4569,7 +4562,7 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -4586,8 +4579,8 @@
     ]
   },
   "timezone": "",
-  "title": "Pulse Staking dashboard",
-  "uid": "Ou2JF6PVk",
-  "version": 6,
+  "title": "Staking Dashboard",
+  "uid": "t2yHaa3Zz3lot",
+  "version": 20,
   "weekStart": ""
 }
