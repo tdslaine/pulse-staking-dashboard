@@ -21,6 +21,13 @@
       "label": "validator_job",
       "value": "lighthouse_validator",
       "description": ""
+    },
+    {
+      "name": "BEACON_EXPLORER",
+      "type": "constant",
+      "label": "Explorer_Url",
+      "value": "https://beacon.v4.testnet.pulsechain.com/",
+      "description": ""
     }
   ],
   "annotations": {
@@ -1839,8 +1846,8 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}",
-                    "url": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}"
+                    "title":  "${BEACON_EXPLORER}/validator/${__value.raw}",
+                    "url": "${BEACON_EXPLORER}/validator/${__value.raw}"
                   }
                 ]
               },
