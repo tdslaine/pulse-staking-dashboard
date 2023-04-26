@@ -1,4 +1,28 @@
 {
+ "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    },
+    {
+      "name": "VAR_NODE_JOB",
+      "type": "constant",
+      "label": "node_job",
+      "value": "lighthouse",
+      "description": ""
+    },
+    {
+      "name": "VAR_VALIDATOR_JOB",
+      "type": "constant",
+      "label": "validator_job",
+      "value": "lighthouse_validator",
+      "description": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -33,7 +57,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This panel shows the earning during the last hour, and the annualized % of the hourly earning.\n\nThose data won't be shown until the first validator is at least one hour old, or that you started prometheus at least one hour ago.\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
@@ -227,7 +251,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1h)))*1E-9\r\n",
@@ -239,7 +263,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -250,7 +274,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1h)))/avg_over_time(count(validator_monitor_balance_gwei > 1E15)[1h:30s])*1E-9/24/365*100",
@@ -266,7 +290,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This panel shows the earning during the last day, and the annualized % of the daily earning.\n\nThose data won't be shown until the first validator is at least one day old, or that you started prometheus at least one day ago.\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
@@ -460,7 +484,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1d)))*1E-9",
@@ -472,7 +496,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1d > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -483,7 +507,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1d)))/avg_over_time(count(validator_monitor_balance_gwei > 1E15)[1d:12m])*1E-9/24/365*100",
@@ -499,7 +523,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This panel shows the earning during the last week, and the annualized % of the weekly earning.\n\nThose data won't be shown until the first validator is at least one week old, or that you started prometheus at least one week ago.\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
@@ -689,7 +713,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1w)))*1E-9",
@@ -701,7 +725,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1w) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1w > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -712,7 +736,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1w)))/avg_over_time(count(validator_monitor_balance_gwei > 1E15)[1w:84m])*1E-9/24/365*100",
@@ -728,7 +752,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This panel shows the earning during the last month, and the annualized % of the monthly earning.\n\nThose data won't be shown until the first validator is at least one month old, or that you started prometheus at least one month ago. Ensure to run Prometheus with the flag `--storage.tsdb.retention.time=31d` if you want this panel to get enough data\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
@@ -918,7 +942,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 30d)))*1E-9",
@@ -930,7 +954,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 30d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 30d > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
@@ -942,7 +966,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 30d)))/avg_over_time(count(validator_monitor_balance_gwei > 1E15)[30d:6h])*1E-9/24/365*100",
@@ -958,7 +982,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1188,7 +1212,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei) - sum(vc_validators_total_count*32E15))*1E-9",
@@ -1200,7 +1224,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "((sum(validator_monitor_balance_gwei) - count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
@@ -1212,7 +1236,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei) - sum(vc_validators_total_count*32E15))*100\r\n/(sum(vc_validators_total_count)*32E15)",
@@ -1228,7 +1252,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1286,7 +1310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(time()-process_start_time_seconds{job=\"$node_job\"})/3600",
@@ -1299,7 +1323,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(time()-process_start_time_seconds{job=\"$validator_job\"})/3600",
@@ -1316,7 +1340,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1413,7 +1437,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "(sum(validator_monitor_balance_gwei > 16E9))/1E9",
           "interval": "",
@@ -1427,7 +1451,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1508,7 +1532,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "(validator_monitor_balance_gwei > 16E9)/1E9",
           "format": "time_series",
@@ -1526,7 +1550,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1726,7 +1750,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "avg_over_time(process_resident_memory_bytes{job=\"$node_job\"}[1m:5s])",
@@ -1739,7 +1763,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
           "expr": "avg_over_time(process_resident_memory_bytes{job=\"$validator_job\"}[1m:5s])",
@@ -1752,7 +1776,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "system_loadavg_1",
           "hide": false,
@@ -1768,7 +1792,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This panel will count only the votes done since your validator process started",
       "fieldConfig": {
@@ -1815,8 +1839,8 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "https://beaconcha.in/validator/${__value.raw}",
-                    "url": "https://beaconcha.in/validator/${__value.raw}"
+                    "title": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}",
+                    "url": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}"
                   }
                 ]
               },
@@ -1943,7 +1967,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "max by (validator) (validator_monitor_unaggregated_attestation_total)",
           "format": "table",
@@ -1957,7 +1981,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "max by (validator) (validator_monitor_aggregated_attestation_total)",
           "format": "table",
@@ -1971,7 +1995,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "max by (validator) (validator_monitor_beacon_block_total)",
           "format": "table",
@@ -2007,7 +2031,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -2053,8 +2077,8 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "https://beaconcha.in/validator/${__value.raw}",
-                    "url": "https://beaconcha.in/validator/${__value.raw}"
+                    "title": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}",
+                    "url": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}"
                   }
                 ]
               },
@@ -2211,7 +2235,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "max by(validator) (validator_monitor_balance_gwei/1E9)",
@@ -2224,7 +2248,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "max by(validator) (validator_monitor_active)",
@@ -2238,7 +2262,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "max by(validator) (validator_monitor_slashed*1000)",
@@ -2252,7 +2276,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "max by(validator) (validator_monitor_exited*10)",
@@ -2266,7 +2290,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "max by(validator) (validator_monitor_withdrawable*100)",
@@ -2280,7 +2304,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "validator_monitor_validator_in_current_sync_committee{}",
@@ -2373,7 +2397,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2505,7 +2529,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 5m))/1E9 >= 0",
@@ -2518,7 +2542,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 5m))/1E9 <= 0",
@@ -2537,7 +2561,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2656,7 +2680,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d))/1E9 >= 0",
           "format": "time_series",
@@ -2668,7 +2692,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d))/1E9 < 0",
           "format": "time_series",
@@ -2685,7 +2709,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2817,7 +2841,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h))/1E9 >= 0",
           "format": "time_series",
@@ -2829,7 +2853,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h))/1E9 <= 0",
           "format": "time_series",
@@ -2847,7 +2871,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2914,7 +2938,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "1",
           "interval": "",
@@ -2928,7 +2952,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "I'm not sure about this one yet",
       "fieldConfig": {
@@ -3009,7 +3033,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
           "expr": "(beacon_participation_prev_epoch_head_attesting_gwei_total/beacon_participation_prev_epoch_target_attesting_gwei_total)*100",
@@ -3032,7 +3056,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3112,7 +3136,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "beacon_head_state_latest_block_slot-beacon_head_state_slot",
           "interval": "",
@@ -3134,7 +3158,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This graph is made for trading purpose mostly.\nSupposing that if a lot of validators are exiting, price is gonna dump.\n\nYoldark : Not working as supposed right now because lighthouse do not provide enough information on the state of the network\n\nAlso this can prevent to exit while exiting queue is too long, same for depositing while pending queue is too long.\n\n",
       "fieldConfig": {
@@ -3307,7 +3331,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -3320,7 +3344,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -3341,7 +3365,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3399,7 +3423,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "(time()-process_start_time_seconds{job=\"$node_job\"})/3600",
@@ -3416,7 +3440,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3473,7 +3497,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "slotclock_present_slot-beacon_head_state_latest_block_slot",
@@ -3489,7 +3513,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This alert is useful only for people who has automatic restart of the process after crash. \nThis can be made for example by using the prysm.bat file on windows with \"set PRYSM_AUTORESTART=true&\", or with docker with \"--restart always\"",
       "fieldConfig": {
@@ -3574,7 +3598,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -3587,7 +3611,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -3614,7 +3638,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3694,7 +3718,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "up{job=\"$node_job\"}",
@@ -3708,7 +3732,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "up{job=\"$validator_job\"}",
@@ -3732,7 +3756,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3814,7 +3838,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9",
           "instant": false,
@@ -3829,7 +3853,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3971,7 +3995,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(validator_monitor_balance_gwei[840s])",
           "interval": "",
@@ -3985,7 +4009,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -4065,7 +4089,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "validator_monitor_slashed",
           "interval": "",
@@ -4079,7 +4103,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -4159,7 +4183,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "error_total{job=\"$node_job\"} - error_total{job=\"$node_job\"} offset 1h",
@@ -4171,7 +4195,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "warn_total{job=\"$node_job\"} - warn_total{job=\"$node_job\"} offset 1h",
@@ -4195,7 +4219,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -4262,7 +4286,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "1",
           "interval": "",
@@ -4276,7 +4300,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "gridPos": {
         "h": 5,
@@ -4315,7 +4339,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "refId": "A"
         }
@@ -4326,7 +4350,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -4383,7 +4407,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "libp2p_peers",
@@ -4399,7 +4423,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "pDl2arPVz"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "This panel won't have consistant values during the first hour of the node started process",
       "fieldConfig": {
@@ -4468,7 +4492,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "error_total{job=\"$node_job\"} - error_total{job=\"$node_job\"} offset 1h",
@@ -4481,7 +4505,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "pDl2arPVz"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "warn_total{job=\"$node_job\"} - warn_total{job=\"$node_job\"} offset 1h",
           "hide": false,
@@ -4525,7 +4549,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "pDl2arPVz"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(crypto_currency, pair)",
         "hide": 0,
@@ -4550,7 +4574,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "pDl2arPVz"
+          "uid": "${DS_PROMETHEUS}"
         },
         "filters": [],
         "hide": 0,
