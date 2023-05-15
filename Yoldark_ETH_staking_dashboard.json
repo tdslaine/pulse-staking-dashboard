@@ -26,7 +26,7 @@
       "name": "BEACON_EXPLORER",
       "type": "constant",
       "label": "Explorer_Url",
-      "value": "https://beacon.v4.testnet.pulsechain.com/",
+      "value": "https://beacon.pulsechain.com/",
       "description": ""
     }
   ],
@@ -125,7 +125,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "tPLS"
+              "options": "PLS"
             },
             "properties": [
               {
@@ -264,7 +264,7 @@
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1h)))*1E-9\r\n",
           "instant": true,
           "interval": "",
-          "legendFormat": "tPLS",
+          "legendFormat": "PLS",
           "refId": "A"
         },
         {
@@ -497,7 +497,7 @@
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1d)))*1E-9",
           "instant": true,
           "interval": "",
-          "legendFormat": "tPLS",
+          "legendFormat": "PLS",
           "refId": "A"
         },
         {
@@ -726,7 +726,7 @@
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 1w)))*1E-9",
           "instant": true,
           "interval": "",
-          "legendFormat": "tPLS",
+          "legendFormat": "PLS",
           "refId": "A"
         },
         {
@@ -955,7 +955,7 @@
           "expr": "(sum(validator_monitor_balance_gwei - (validator_monitor_balance_gwei offset 30d)))*1E-9",
           "instant": true,
           "interval": "",
-          "legendFormat": "tPLS",
+          "legendFormat": "PLS",
           "refId": "A"
         },
         {
@@ -1166,7 +1166,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "tPLS"
+              "options": "PLS"
             },
             "properties": [
               {
@@ -1225,7 +1225,7 @@
           "expr": "(sum(validator_monitor_balance_gwei) - sum(vc_validators_total_count*32E15))*1E-9",
           "instant": true,
           "interval": "",
-          "legendFormat": "tPLS",
+          "legendFormat": "PLS",
           "refId": "A"
         },
         {
@@ -1357,7 +1357,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "tPLS",
+            "axisLabel": "PLS",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1468,7 +1468,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "tPLS",
+            "axisLabel": "PLS",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2084,8 +2084,8 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}",
-                    "url": "https://beacon.v4.testnet.pulsechain.com/validator/${__value.raw}"
+                    "title": "https://beacon.pulsechain.com/validator/${__value.raw}",
+                    "url": "https://beacon.pulsechain.com/validator/${__value.raw}"
                   }
                 ]
               },
@@ -2414,7 +2414,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "tPLS",
+            "axisLabel": "PLS",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "bars",
@@ -2561,7 +2561,7 @@
         }
       ],
       "timeFrom": "now-1h",
-      "title": "5m earning tPLS last hour",
+      "title": "5m earning PLS last hour",
       "transformations": [],
       "type": "timeseries"
     },
@@ -2578,7 +2578,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "tPLS",
+            "axisLabel": "PLS",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "bars",
@@ -2710,7 +2710,7 @@
         }
       ],
       "timeFrom": "now-7d",
-      "title": "Daily earning tPLS last 7 days",
+      "title": "Daily earning PLS last 7 days",
       "type": "timeseries"
     },
     {
@@ -2726,7 +2726,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "tPLS",
+            "axisLabel": "PLS",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "bars",
@@ -2871,7 +2871,7 @@
         }
       ],
       "timeFrom": "now-1d",
-      "title": "Hourly earning tPLS last 24 hours",
+      "title": "Hourly earning PLS last 24 hours",
       "transformations": [],
       "type": "timeseries"
     },
@@ -3176,7 +3176,7 @@
           "custom": {
             "axisCenteredZero": false,
             "axisColorMode": "text",
-            "axisLabel": "tPLS",
+            "axisLabel": "PLS",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -4548,7 +4548,7 @@
         "type": "constant"
       },
       {
-        "allValue": "tPLS",
+        "allValue": "PLS",
         "current": {
           "selected": false,
           "text": "All",
